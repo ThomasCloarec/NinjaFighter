@@ -1,84 +1,30 @@
-import javax.sound.sampled.*;
 import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.Toolkit;
-import java.io.File;
-import java.io.IOException;
 
+/**
+ * The type Main.
+ */
 public class Main {
     private static final String OS = System.getProperty("os.name").toLowerCase();
     private static final boolean IS_UNIX_OS = Main.OS.contains("nix") || Main.OS.contains("nux") || Main.OS.contains("aix");
 
+    /**
+     * The entry point of application.
+     *
+     * @param args the input arguments
+     */
     public static void main(String[] args) {
-
         Panneau panneau = new Panneau(500, 500);
 
         Rectangle joueur = new Rectangle.Builder(Rectangle.Type.JOUEUR, panneau).
                 setX(235).
                 setY(150).
-                setVitesseX(3).
-                setVitesseY(3).
-                build();
+                setVitesseX(5).
+                setVitesseY(5).
+                start();
 
-        Rectangle rectangle1 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(30).
-                setY(30).
-                build();
-
-        Rectangle rectangle2 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(430).
-                setY(30).
-                build();
-
-        Rectangle rectangle3 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(30).
-                setY(430).
-                build();
-
-        Rectangle rectangle4 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(430).
-                setY(430).
-                build();
-
-        Rectangle rectangle5 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(100).
-                setY(100).
-                build();
-
-        Rectangle rectangle6 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(360).
-                setY(100).
-                build();
-
-        Rectangle rectangle7 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(100).
-                setY(360).
-                build();
-
-        Rectangle rectangle8 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(360).
-                setY(360).
-                build();
-
-        Rectangle rectangle9 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(225).
-                setY(50).
-                build();
-
-        Rectangle rectangle10 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(225).
-                setY(420).
-                build();
-
-        Rectangle rectangle11 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(50).
-                setY(225).
-                build();
-
-        Rectangle rectangle12 = new Rectangle.Builder(Rectangle.Type.ENNEMI, panneau).
-                setX(420).
-                setY(225).
-                build();
+        Ennemi.generateEnemies(panneau, 1000);
 
         Rectangle base = new Rectangle.Builder(Rectangle.Type.BASE, panneau).
                 setX(210).
@@ -87,27 +33,9 @@ public class Main {
                 setLargeur(80).
                 setVitesseX(0).
                 setVitesseY(0).
-                build();
+                start();
 
-        new Activity(joueur, panneau).start();
-        new Activity(rectangle1, panneau).start();
-        new Activity(rectangle2, panneau).start();
-        new Activity(rectangle3, panneau).start();
-        new Activity(rectangle4, panneau).start();
-        new Activity(rectangle5, panneau).start();
-        new Activity(rectangle6, panneau).start();
-        new Activity(rectangle7, panneau).start();
-        new Activity(rectangle8, panneau).start();
-        new Activity(rectangle9, panneau).start();
-        new Activity(rectangle10, panneau).start();
-        new Activity(rectangle11, panneau).start();
-        new Activity(rectangle12, panneau).start();
-        new Activity(base, panneau).start();
-
-        // Une belle musique libre de droit... car faite maison !
-
-        Audio music = new Audio("/data/sounds/ninja.wav");
-        music.play();
+        new Audio("/data/sounds/ninja.wav").play();
 
         new Thread(() -> {
             while (true) {
@@ -128,8 +56,7 @@ public class Main {
                     }
 
                     if (finish) {
-                        JOptionPane.showMessageDialog(panneau.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemi.points + " ! :O");
-                        // Codé en 1h30, code le plus sale de ma vie, mais ça fonctionne... Lorsqu'on est un développeur, il faut savoir bien coder et parfois savoir foncer. Ici, je crois que vous savez ce que j'ai dû faire.
+                        JOptionPane.showMessageDialog(panneau.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemi.points + " !");
                         System.exit(0);
                     }
                 } catch (InterruptedException e) {

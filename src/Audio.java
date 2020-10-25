@@ -5,13 +5,20 @@ import javax.sound.sampled.DataLine;
 import javax.sound.sampled.LineUnavailableException;
 import javax.sound.sampled.UnsupportedAudioFileException;
 import java.io.BufferedInputStream;
-import java.io.File;
 import java.io.IOException;
 import java.io.InputStream;
 
+/**
+ * The type Audio.
+ */
 public class Audio {
     private Clip clip;
 
+    /**
+     * Instantiates a new Audio.
+     *
+     * @param fileName the file name
+     */
     public Audio(String fileName) {
 
         try {
@@ -19,7 +26,7 @@ public class Audio {
             InputStream bufferedIn = new BufferedInputStream(audioSrc);
             AudioInputStream inputStream = AudioSystem.getAudioInputStream(bufferedIn);
             DataLine.Info info = new DataLine.Info(Clip.class, inputStream.getFormat());
-            this.clip = (Clip)AudioSystem.getLine(info);
+            this.clip = (Clip) AudioSystem.getLine(info);
             this.clip.open(inputStream);
         } catch (IllegalArgumentException ignored) {
             assert this.clip != null;
@@ -30,6 +37,9 @@ public class Audio {
         }
     }
 
+    /**
+     * Play.
+     */
     public void play() {
 
         if (this.clip != null && !this.clip.isRunning()) {
@@ -38,6 +48,9 @@ public class Audio {
         }
     }
 
+    /**
+     * Loop.
+     */
     @SuppressWarnings("unused")
     public void loop() {
         if (this.clip != null) {
@@ -45,6 +58,9 @@ public class Audio {
         }
     }
 
+    /**
+     * Stop.
+     */
     @SuppressWarnings("unused")
     public void stop() {
         if (this.clip != null) {

@@ -7,14 +7,27 @@ import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.KeyEvent;
 
+/**
+ * The type Joueur.
+ */
 public class Joueur extends Rectangle {
-    public static final Color couleur = Color.BLUE;
     private static final String RELEASE_LEFT = "Release.left", RELEASE_RIGHT = "Release.right", PRESS_LEFT = "Press.left", PRESS_RIGHT = "Press.right",
             RELEASE_UP = "Release.up", RELEASE_DOWN = "Release.down", PRESS_UP = "Press.up", PRESS_DOWN = "Press.down";
     private boolean moveLeft, moveRight, moveUp, moveDown;
 
+    /**
+     * Instantiates a new Joueur.
+     *
+     * @param panneau  the panneau
+     * @param largeur  the largeur
+     * @param hauteur  the hauteur
+     * @param x        the x
+     * @param y        the y
+     * @param vitesseX the vitesse x
+     * @param vitesseY the vitesse y
+     */
     public Joueur(Panneau panneau, int largeur, int hauteur, int x, int y, int vitesseX, int vitesseY) {
-        super(panneau, Joueur.couleur, largeur, hauteur, x, y, vitesseX, vitesseY);
+        super(panneau, Color.BLUE, largeur, hauteur, x, y, vitesseX, vitesseY);
 
         InputMap IM = panneau.getMainPanel().getInputMap(JComponent.WHEN_IN_FOCUSED_WINDOW);
         ActionMap AM = panneau.getMainPanel().getActionMap();
