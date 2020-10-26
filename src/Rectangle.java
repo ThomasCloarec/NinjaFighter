@@ -13,7 +13,7 @@ public abstract class Rectangle {
     private static final int DEFAULT_WIDTH = 30;
     private final Panneau panneau;
     /**
-     * The Couleur.
+     * The Color of this rectangle.
      */
     protected Color couleur;
     /**
@@ -21,19 +21,19 @@ public abstract class Rectangle {
      */
     protected Type type;
     /**
-     * The Vitesse x.
+     * The x speed.
      */
     protected int vitesseX;
     /**
-     * The Vitesse y.
+     * The y speed.
      */
     protected int vitesseY;
     /**
-     * The X.
+     * The X position.
      */
     protected int x;
     /**
-     * The Y.
+     * The Y position.
      */
     protected int y;
     private int hauteur;
@@ -42,14 +42,14 @@ public abstract class Rectangle {
     /**
      * Instantiates a new Rectangle.
      *
-     * @param panneau  the panneau
-     * @param couleur  the couleur
-     * @param largeur  the largeur
-     * @param hauteur  the hauteur
-     * @param x        the x
-     * @param y        the y
-     * @param vitesseX the vitesse x
-     * @param vitesseY the vitesse y
+     * @param panneau  the panel where the recatngle will be display
+     * @param couleur  the color of this rectangle
+     * @param largeur  the width of this rectangle
+     * @param hauteur  the height of this rectangle
+     * @param x        the x position of this rectangle
+     * @param y        the y position of this rectangle
+     * @param vitesseX the x speed of this rectangle
+     * @param vitesseY the y speed of this rectangle
      */
     public Rectangle(Panneau panneau, Color couleur, int largeur, int hauteur, int x, int y, int vitesseX, int vitesseY) {
         this.panneau = panneau;

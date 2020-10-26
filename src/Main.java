@@ -12,7 +12,7 @@ public class Main {
     /**
      * The entry point of application.
      *
-     * @param args the input arguments
+     * @param args the input arguments from the command line
      */
     public static void main(String[] args) {
         Panneau panneau = new Panneau(500, 500);

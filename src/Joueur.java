@@ -18,13 +18,13 @@ public class Joueur extends Rectangle {
     /**
      * Instantiates a new Joueur.
      *
-     * @param panneau  the panneau
-     * @param largeur  the largeur
-     * @param hauteur  the hauteur
-     * @param x        the x
-     * @param y        the y
-     * @param vitesseX the vitesse x
-     * @param vitesseY the vitesse y
+     * @param panneau  the panel where the player will be display
+     * @param largeur  the width of the player
+     * @param hauteur  the height of the player
+     * @param x        the x position of the player
+     * @param y        the y position of the player
+     * @param vitesseX the x speed of the player
+     * @param vitesseY the y speed of the player
      */
     public Joueur(Panneau panneau, int largeur, int hauteur, int x, int y, int vitesseX, int vitesseY) {
         super(panneau, Color.BLUE, largeur, hauteur, x, y, vitesseX, vitesseY);

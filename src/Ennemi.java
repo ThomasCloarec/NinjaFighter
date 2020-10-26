@@ -13,13 +13,13 @@ public class Ennemi extends Rectangle {
     /**
      * Instantiates a new Ennemi.
      *
-     * @param panneau  the panneau
-     * @param largeur  the largeur
-     * @param hauteur  the hauteur
-     * @param x        the x
-     * @param y        the y
-     * @param vitesseX the vitesse x
-     * @param vitesseY the vitesse y
+     * @param panneau  the panel where the ennemy will be display
+     * @param largeur  the width of the ennemy
+     * @param hauteur  the height of the ennemy
+     * @param x        the x position of the ennemy
+     * @param y        the y position of the ennemy
+     * @param vitesseX the x speed of the ennemy to make it move
+     * @param vitesseY the y speed of the ennemy to make it move
      */
     public Ennemi(Panneau panneau, int largeur, int hauteur, int x, int y, int vitesseX, int vitesseY) {
         super(panneau, Color.RED, largeur, hauteur, x, y, vitesseX, vitesseY);
@@ -28,8 +28,8 @@ public class Ennemi extends Rectangle {
     /**
      * Generate enemies.
      *
-     * @param panneau the panneau
-     * @param count   the count
+     * @param panneau the panel where the ennemy will be display
+     * @param count   the number of ennemies to generate
      */
     public static void generateEnemies(Panneau panneau, int count) {
         for (int i = 0; i < count; i++) {

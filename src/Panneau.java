@@ -26,8 +26,8 @@ public class Panneau {
     /**
      * Instantiates a new Panneau.
      *
-     * @param largeur the largeur
-     * @param hauteur the hauteur
+     * @param largeur the width of the panel
+     * @param hauteur the height of the panel
      */
     public Panneau(int largeur, int hauteur) {
         this.scores.setForeground(Color.WHITE);

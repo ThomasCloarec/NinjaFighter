@@ -38,7 +38,7 @@ public class Audio {
     }
 
     /**
-     * Play.
+     * Start to play audio.
      */
     public void play() {
 
@@ -49,7 +49,7 @@ public class Audio {
     }
 
     /**
-     * Loop.
+     * Play audio infinitely
      */
     @SuppressWarnings("unused")
     public void loop() {
@@ -59,7 +59,7 @@ public class Audio {
     }
 
     /**
-     * Stop.
+     * Stop to play audio
      */
     @SuppressWarnings("unused")
     public void stop() {

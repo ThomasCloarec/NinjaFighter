@@ -8,8 +8,8 @@ public class Activity implements Runnable {
     /**
      * Instantiates a new Activity.
      *
-     * @param r the r
-     * @param p the p
+     * @param r the rectangle to apply activity
+     * @param p the panel where rectangle will move
      */
     public Activity(Rectangle r, Panneau p) {
         this.rectangle = r;
