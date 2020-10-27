@@ -12,9 +12,9 @@ import java.util.Arrays;
 import java.util.List;
 
 /**
- * The type Panneau.
+ * The type Board.
  */
-public class Panneau {
+public class Board {
     /**
      * The Rectangle list.
      */
@@ -24,16 +24,16 @@ public class Panneau {
     private JPanel mainPanel;
 
     /**
-     * Instantiates a new Panneau.
+     * Instantiates a new Board.
      *
-     * @param largeur the width of the panel
-     * @param hauteur the height of the panel
+     * @param width the width of the panel
+     * @param height the height of the panel
      */
-    public Panneau(int largeur, int hauteur) {
+    public Board(int width, int height) {
         this.scores.setForeground(Color.WHITE);
         try {
             SwingUtilities.invokeAndWait(() -> {
-                this.frame.setSize(largeur, hauteur);
+                this.frame.setSize(width, height);
                 this.frame.setLocationRelativeTo(null);
                 this.frame.setResizable(false);
                 this.frame.setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -44,8 +44,8 @@ public class Panneau {
                         super.paintComponent(g);
 
                         Rectangle rectangle;
-                        for (int i = 0; i < Panneau.this.rectangleList.size(); i++) {
-                            rectangle = Panneau.this.rectangleList.get(i);
+                        for (int i = 0; i < Board.this.rectangleList.size(); i++) {
+                            rectangle = Board.this.rectangleList.get(i);
 
                             if (rectangle.getType().image == null) {
                                 g.setColor(rectangle.getCouleur());
@@ -55,9 +55,9 @@ public class Panneau {
                             }
                         }
 
-                        Panneau.this.scores.setText(Integer.toString(Ennemi.points));
-                        int labelWidth = g.getFontMetrics().stringWidth(Panneau.this.scores.getText());
-                        Panneau.this.scores.setLocation(250 - labelWidth / 2, 20);
+                        Board.this.scores.setText(Integer.toString(Ennemy.points));
+                        int labelWidth = g.getFontMetrics().stringWidth(Board.this.scores.getText());
+                        Board.this.scores.setLocation(250 - labelWidth / 2, 20);
                     }
                 };
 

@@ -2,7 +2,7 @@
  * The type Activity.
  */
 public class Activity implements Runnable {
-    private final Panneau panneau;
+    private final Board board;
     private final Rectangle rectangle;
 
     /**
@@ -11,9 +11,9 @@ public class Activity implements Runnable {
      * @param r the rectangle to apply activity
      * @param p the panel where rectangle will move
      */
-    public Activity(Rectangle r, Panneau p) {
+    public Activity(Rectangle r, Board p) {
         this.rectangle = r;
-        this.panneau = p;
+        this.board = p;
     }
 
     /**
@@ -26,7 +26,7 @@ public class Activity implements Runnable {
     @Override
     public void run() {
         while (true) {
-            this.rectangle.rectangleActivity(this.panneau);
+            this.rectangle.rectangleActivity(this.board);
 
             try {
                 Thread.sleep(30);

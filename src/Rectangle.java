@@ -12,7 +12,7 @@ public abstract class Rectangle {
     private static final int DEFAULT_SPEED_X = 2;
     private static final int DEFAULT_SPEED_Y = 2;
     private static final int DEFAULT_WIDTH = 30;
-    private final Panneau panneau;
+    private final Board board;
     /**
      * The Color of this rectangle.
      */
@@ -24,11 +24,11 @@ public abstract class Rectangle {
     /**
      * The x speed.
      */
-    protected int vitesseX;
+    protected int XSpeed;
     /**
      * The y speed.
      */
-    protected int vitesseY;
+    protected int YSpeed;
     /**
      * The X position.
      */
@@ -37,28 +37,28 @@ public abstract class Rectangle {
      * The Y position.
      */
     protected int y;
-    private int hauteur;
-    private int largeur;
+    private int height;
+    private int width;
 
     /**
      * Instantiates a new Rectangle.
      *
-     * @param panneau  the panel where the recatngle will be display
+     * @param board  the panel where the recatngle will be display
      * @param couleur  the color of this rectangle
-     * @param largeur  the width of this rectangle
-     * @param hauteur  the height of this rectangle
+     * @param width  the width of this rectangle
+     * @param height  the height of this rectangle
      * @param x        the x position of this rectangle
      * @param y        the y position of this rectangle
-     * @param vitesseX the x speed of this rectangle
-     * @param vitesseY the y speed of this rectangle
+     * @param XSpeed the x speed of this rectangle
+     * @param YSpeed the y speed of this rectangle
      */
-    public Rectangle(Panneau panneau, Color couleur, int largeur, int hauteur, int x, int y, int vitesseX, int vitesseY) {
-        this.panneau = panneau;
+    public Rectangle(Board board, Color couleur, int width, int height, int x, int y, int XSpeed, int YSpeed) {
+        this.board = board;
         this.couleur = couleur;
-        this.largeur = largeur;
-        this.hauteur = hauteur;
-        this.vitesseX = vitesseX;
-        this.vitesseY = vitesseY;
+        this.width = width;
+        this.height = height;
+        this.XSpeed = XSpeed;
+        this.YSpeed = YSpeed;
 
         this.x = x;
         this.y = y;
@@ -67,46 +67,46 @@ public abstract class Rectangle {
     /**
      * Check and update speed.
      *
-     * @param panneau the panneau
+     * @param board the board
      */
-    public abstract void checkAndUpdateSpeed(Panneau panneau);
+    public abstract void checkAndUpdateSpeed(Board board);
 
     /**
      * Update speed.
      *
      * @param p the p
      */
-    public void updateSpeed(Panneau p) {
+    public void updateSpeed(Board p) {
         JPanel mainPanel = p.getMainPanel();
 
-        int speedX = this.vitesseX;
-        int speedY = this.vitesseY;
+        int speedX = this.XSpeed;
+        int speedY = this.YSpeed;
 
-        if (this.x - this.vitesseX <= 0) {
+        if (this.x - this.XSpeed <= 0) {
             if (speedX < 0) {
-                speedX = -(this.vitesseX);
+                speedX = -(this.XSpeed);
             }
-        } else if ((this.x + this.largeur) >= mainPanel.getWidth()) {
+        } else if ((this.x + this.width) >= mainPanel.getWidth()) {
             if (speedX > 0) {
-                speedX = -(this.vitesseX);
+                speedX = -(this.XSpeed);
             }
         }
 
-        if (this.y - this.vitesseY <= 0) {
+        if (this.y - this.YSpeed <= 0) {
             if (speedY < 0) {
-                speedY = -(this.vitesseY);
+                speedY = -(this.YSpeed);
             }
-        } else if ((this.y + this.hauteur) >= mainPanel.getHeight()) {
+        } else if ((this.y + this.height) >= mainPanel.getHeight()) {
             if (speedY > 0) {
-                speedY = -(this.vitesseY);
+                speedY = -(this.YSpeed);
             }
         }
 
-        this.vitesseX = speedX;
-        this.vitesseY = speedY;
+        this.XSpeed = speedX;
+        this.YSpeed = speedY;
 
-        this.x += this.vitesseX;
-        this.y += this.vitesseY;
+        this.x += this.XSpeed;
+        this.y += this.YSpeed;
     }
 
     /**
@@ -114,7 +114,7 @@ public abstract class Rectangle {
      *
      * @param p the p
      */
-    public void moveRectangle(Panneau p) {
+    public void moveRectangle(Board p) {
         this.checkAndUpdateSpeed(p);
     }
 
@@ -123,7 +123,7 @@ public abstract class Rectangle {
      *
      * @param p the p
      */
-    public void rectangleActivity(Panneau p) {
+    public void rectangleActivity(Board p) {
         this.moveRectangle(p);
     }
 
@@ -137,39 +137,39 @@ public abstract class Rectangle {
     }
 
     /**
-     * Gets hauteur.
+     * Gets height.
      *
-     * @return the hauteur
+     * @return the height
      */
     public int getHauteur() {
-        return this.hauteur;
+        return this.height;
     }
 
     /**
-     * Sets hauteur.
+     * Sets height.
      *
-     * @param hauteur the hauteur
+     * @param height the height
      */
-    public void setHauteur(int hauteur) {
-        this.hauteur = hauteur;
+    public void setHauteur(int height) {
+        this.height = height;
     }
 
     /**
-     * Gets largeur.
+     * Gets width.
      *
-     * @return the largeur
+     * @return the width
      */
     public int getLargeur() {
-        return this.largeur;
+        return this.width;
     }
 
     /**
-     * Sets largeur.
+     * Sets width.
      *
-     * @param largeur the largeur
+     * @param width the width
      */
-    public void setLargeur(int largeur) {
-        this.largeur = largeur;
+    public void setLargeur(int width) {
+        this.width = width;
     }
 
     /**
@@ -187,16 +187,16 @@ public abstract class Rectangle {
      * @return the vitesse x
      */
     public int getVitesseX() {
-        return this.vitesseX;
+        return this.XSpeed;
     }
 
     /**
      * Sets vitesse x.
      *
-     * @param vitesseX the vitesse x
+     * @param XSpeed the vitesse x
      */
-    public void setVitesseX(int vitesseX) {
-        this.vitesseX = vitesseX;
+    public void setVitesseX(int XSpeed) {
+        this.XSpeed = XSpeed;
     }
 
     /**
@@ -205,16 +205,16 @@ public abstract class Rectangle {
      * @return the vitesse y
      */
     public int getVitesseY() {
-        return this.vitesseY;
+        return this.YSpeed;
     }
 
     /**
      * Sets vitesse y.
      *
-     * @param vitesseY the vitesse y
+     * @param YSpeed the vitesse y
      */
-    public void setVitesseY(int vitesseY) {
-        this.vitesseY = vitesseY;
+    public void setVitesseY(int YSpeed) {
+        this.YSpeed = YSpeed;
     }
 
     /**
@@ -259,11 +259,11 @@ public abstract class Rectangle {
      * @return the boolean
      */
     public boolean isInWindow() {
-        JPanel mainPanel = this.panneau.getMainPanel();
+        JPanel mainPanel = this.board.getMainPanel();
 
         boolean ret;
-        ret = ((this.x + this.largeur) < mainPanel.getWidth()) && this.x >= 0; // horizontal check
-        ret = ret && this.y >= 0 && ((this.y + this.hauteur) < mainPanel.getHeight()); // vertical check
+        ret = ((this.x + this.width) < mainPanel.getWidth()) && this.x >= 0; // horizontal check
+        ret = ret && this.y >= 0 && ((this.y + this.height) < mainPanel.getHeight()); // vertical check
 
         return ret;
     }
@@ -273,11 +273,11 @@ public abstract class Rectangle {
      */
     public enum Type {
         /**
-         * Joueur type.
+         * Player type.
          */
         JOUEUR("resources/images/tatitatoo.png"),
         /**
-         * Ennemi type.
+         * Ennemy type.
          */
         ENNEMI(),
         /**
@@ -291,7 +291,7 @@ public abstract class Rectangle {
 
         Type(String imagePath) {
             try {
-                this.image = ImageIO.read(Panneau.class.getResourceAsStream(imagePath));
+                this.image = ImageIO.read(Board.class.getResourceAsStream(imagePath));
             } catch (IOException ioException) {
                 ioException.printStackTrace();
             }
@@ -312,17 +312,17 @@ public abstract class Rectangle {
          * Instantiates a new Builder.
          *
          * @param type    the type
-         * @param panneau the panneau
+         * @param board the board
          */
-        Builder(Type type, Panneau panneau) {
+        Builder(Type type, Board board) {
             if (type == Type.JOUEUR) {
-                this.rectangle = new Joueur(panneau, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
+                this.rectangle = new Player(board, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
                 this.rectangle.type = Type.JOUEUR;
             } else if (type == Type.BASE) {
-                this.rectangle = new Base(panneau, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
+                this.rectangle = new Base(board, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
                 this.rectangle.type = Type.BASE;
             } else {
-                this.rectangle = new Ennemi(panneau, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
+                this.rectangle = new Ennemy(board, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
                 this.rectangle.type = Type.ENNEMI;
             }
         }
@@ -333,7 +333,7 @@ public abstract class Rectangle {
          * @return the rectangle
          */
         public Rectangle build() {
-            this.rectangle.panneau.addRectangle(this.rectangle);
+            this.rectangle.board.addRectangle(this.rectangle);
             return this.rectangle;
         }
 
@@ -344,51 +344,51 @@ public abstract class Rectangle {
          */
         public Rectangle start() {
             Rectangle rectangle = this.build();
-            new Activity(this.rectangle, this.rectangle.panneau).start();
+            new Activity(this.rectangle, this.rectangle.board).start();
             return rectangle;
         }
 
         /**
-         * Sets hauteur.
+         * Sets height.
          *
-         * @param hauteur the hauteur
-         * @return the hauteur
+         * @param height the height
+         * @return the height
          */
-        public Builder setHauteur(int hauteur) {
-            this.rectangle.setHauteur(hauteur);
+        public Builder setHauteur(int height) {
+            this.rectangle.setHauteur(height);
             return this;
         }
 
         /**
-         * Sets largeur.
+         * Sets width.
          *
-         * @param largeur the largeur
-         * @return the largeur
+         * @param width the width
+         * @return the width
          */
-        public Builder setLargeur(int largeur) {
-            this.rectangle.setLargeur(largeur);
+        public Builder setLargeur(int width) {
+            this.rectangle.setLargeur(width);
             return this;
         }
 
         /**
          * Sets vitesse x.
          *
-         * @param vitesseX the vitesse x
+         * @param XSpeed the vitesse x
          * @return the vitesse x
          */
-        public Builder setVitesseX(int vitesseX) {
-            this.rectangle.setVitesseX(vitesseX);
+        public Builder setVitesseX(int XSpeed) {
+            this.rectangle.setVitesseX(XSpeed);
             return this;
         }
 
         /**
          * Sets vitesse y.
          *
-         * @param vitesseY the vitesse y
+         * @param YSpeed the vitesse y
          * @return the vitesse y
          */
-        public Builder setVitesseY(int vitesseY) {
-            this.rectangle.setVitesseY(vitesseY);
+        public Builder setVitesseY(int YSpeed) {
+            this.rectangle.setVitesseY(YSpeed);
             return this;
         }
 

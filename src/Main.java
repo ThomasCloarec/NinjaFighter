@@ -15,18 +15,18 @@ public class Main {
      * @param args the input arguments from the command line
      */
     public static void main(String[] args) {
-        Panneau panneau = new Panneau(500, 500);
+        Board board = new Board(500, 500);
 
-        new Rectangle.Builder(Rectangle.Type.JOUEUR, panneau).
+        new Rectangle.Builder(Rectangle.Type.JOUEUR, board).
                 setX(235).
                 setY(150).
                 setVitesseX(5).
                 setVitesseY(5).
                 start();
 
-        Ennemi.generateEnemies(panneau, 15);
+        Ennemy.generateEnemies(board, 3);
 
-        new Rectangle.Builder(Rectangle.Type.BASE, panneau).
+        new Rectangle.Builder(Rectangle.Type.BASE, board).
                 setX(210).
                 setY(210).
                 setHauteur(80).
@@ -42,22 +42,22 @@ public class Main {
             while (running) {
                 try {
                     Thread.sleep(30);
-                    panneau.refreshFrame();
+                    board.refreshFrame();
                     if (Main.IS_UNIX_OS)
                         Toolkit.getDefaultToolkit().sync();
 
                     boolean done = true;
 
                     int i = 0;
-                    while (done && i < panneau.rectangleList.size()) {
-                        if (panneau.rectangleList.get(i).type == Rectangle.Type.ENNEMI) {
-                            done = panneau.rectangleList.get(i).couleur == Color.BLACK;
+                    while (done && i < board.rectangleList.size()) {
+                        if (board.rectangleList.get(i).type == Rectangle.Type.ENNEMI) {
+                            done = board.rectangleList.get(i).couleur == Color.BLACK;
                         }
                         i++;
                     }
 
                     if (done) {
-                        JOptionPane.showMessageDialog(panneau.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemi.points + " !");
+                        JOptionPane.showMessageDialog(board.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemy.points + " !");
                         running = false;
                     }
                 } catch (InterruptedException e) {
