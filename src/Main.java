@@ -24,7 +24,7 @@ public class Main {
                 setVitesseY(5).
                 start();
 
-        Ennemy.generateEnemies(board, 3);
+        Ennemy.generateEnemies(board, 15);
 
         new Rectangle.Builder(Rectangle.Type.BASE, board).
                 setX(210).
