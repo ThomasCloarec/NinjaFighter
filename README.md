@@ -18,4 +18,4 @@ as low as possible.
 ![alt text](https://raw.githubusercontent.com/ThomasCloarec/NinjaFighter/main/class_diagram.png?token=AGPUYUBEINKZT6CI2K6LMZC7UHOSC)
 
 ## Documentation :
-![Check it here](https://thomascloarec.github.io/NinjaFighterDocs)
+[Check it here](https://thomascloarec.github.io/NinjaFighterDocs/)
