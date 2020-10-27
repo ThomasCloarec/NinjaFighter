@@ -1,4 +1,4 @@
-#NinjaFighter
+# NinjaFighter
 The goal of this game is to protect its base, the house in the center,
 against the invasion of enemies, represented by red rectangles. The user can move his
 character using the arrow keys or ZQSD. To win, he will have to succeed in touching all
