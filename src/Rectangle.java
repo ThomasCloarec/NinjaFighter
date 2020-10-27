@@ -1,4 +1,5 @@
 import javax.imageio.ImageIO;
+import javax.swing.JPanel;
 import java.awt.Color;
 import java.awt.Image;
 import java.io.IOException;
@@ -76,6 +77,8 @@ public abstract class Rectangle {
      * @param p the p
      */
     public void updateSpeed(Panneau p) {
+        JPanel mainPanel = p.getMainPanel();
+
         int speedX = this.vitesseX;
         int speedY = this.vitesseY;
 
@@ -83,7 +86,7 @@ public abstract class Rectangle {
             if (speedX < 0) {
                 speedX = -(this.vitesseX);
             }
-        } else if ((this.x + this.largeur) >= p.getFrame().getWidth()) {
+        } else if ((this.x + this.largeur) >= mainPanel.getWidth()) {
             if (speedX > 0) {
                 speedX = -(this.vitesseX);
             }
@@ -93,7 +96,7 @@ public abstract class Rectangle {
             if (speedY < 0) {
                 speedY = -(this.vitesseY);
             }
-        } else if ((this.y + this.hauteur) >= p.getFrame().getContentPane().getHeight()) {
+        } else if ((this.y + this.hauteur) >= mainPanel.getHeight()) {
             if (speedY > 0) {
                 speedY = -(this.vitesseY);
             }
@@ -256,7 +259,13 @@ public abstract class Rectangle {
      * @return the boolean
      */
     public boolean isInWindow() {
-        return (((this.x + this.largeur) < this.panneau.getFrame().getWidth()) && this.x >= 0 && this.y >= 0 && ((this.y + this.hauteur) < this.panneau.getFrame().getContentPane().getHeight()));
+        JPanel mainPanel = this.panneau.getMainPanel();
+
+        boolean ret;
+        ret = ((this.x + this.largeur) < mainPanel.getWidth()) && this.x >= 0; // horizontal check
+        ret = ret && this.y >= 0 && ((this.y + this.hauteur) < mainPanel.getHeight()); // vertical check
+
+        return ret;
     }
 
     /**
@@ -266,7 +275,7 @@ public abstract class Rectangle {
         /**
          * Joueur type.
          */
-        JOUEUR("data/images/tatitatoo.png"),
+        JOUEUR("resources/images/tatitatoo.png"),
         /**
          * Ennemi type.
          */
@@ -274,7 +283,7 @@ public abstract class Rectangle {
         /**
          * Base type.
          */
-        BASE("data/images/maya.png");
+        BASE("resources/images/maya.png");
         /**
          * The Image.
          */

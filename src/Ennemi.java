@@ -1,3 +1,4 @@
+import javax.swing.JPanel;
 import java.awt.Color;
 
 /**
@@ -5,6 +6,9 @@ import java.awt.Color;
  */
 public class Ennemi extends Rectangle {
     private static final float RANDOM_HELP = 0.002f;
+    private static final int DEFAULT_MAX_SPEED = 6;
+    private static final int RESTART_DURATION = 50;
+    private static final int SAVING_DURATION = 2000;
     /**
      * The constant points.
      */
@@ -32,9 +36,23 @@ public class Ennemi extends Rectangle {
      * @param count   the number of ennemies to generate
      */
     public static void generateEnemies(Panneau panneau, int count) {
+        JPanel mainPanel = panneau.getMainPanel();
+
         for (int i = 0; i < count; i++) {
-            new Rectangle.Builder(Type.ENNEMI, panneau).setX((int) (Math.random() * panneau.getMainPanel().getWidth())).setY((int) (Math.random() * panneau.getMainPanel().getHeight())).setVitesseX((int) (Math.random() * 6 + 1)).setVitesseY((int) (Math.random() * 6 + 1)).start();
+            new Rectangle.Builder(Type.ENNEMI, panneau)
+                    .setX((int) (Math.random() * mainPanel.getWidth()))
+                    .setY((int) (Math.random() * mainPanel.getHeight()))
+                    .setVitesseX((int) (Math.random() * Ennemi.DEFAULT_MAX_SPEED + 1))
+                    .setVitesseY((int) (Math.random() * Ennemi.DEFAULT_MAX_SPEED + 1))
+                    .start();
         }
+    }
+
+    /**
+     * Increment points.
+     */
+    public static void incrementPoints() {
+        Ennemi.points++;
     }
 
     @Override
@@ -43,8 +61,9 @@ public class Ennemi extends Rectangle {
         if (Math.random() < Ennemi.RANDOM_HELP) {
             try {
                 this.couleur = Color.ORANGE;
-                Thread.sleep(2000);
+                Thread.sleep(Ennemi.SAVING_DURATION);
                 panneau.saveOne();
+                Thread.sleep(Ennemi.RESTART_DURATION);
                 this.couleur = Color.RED;
             } catch (InterruptedException e) {
                 e.printStackTrace();
@@ -58,7 +77,7 @@ public class Ennemi extends Rectangle {
         this.updateSpeed(panneau);
 
         if (panneau.overlaps(false, this, Type.BASE)) {
-            Ennemi.points++;
+            Ennemi.incrementPoints();
         }
     }
 }

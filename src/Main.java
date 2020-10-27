@@ -17,16 +17,16 @@ public class Main {
     public static void main(String[] args) {
         Panneau panneau = new Panneau(500, 500);
 
-        Rectangle joueur = new Rectangle.Builder(Rectangle.Type.JOUEUR, panneau).
+        new Rectangle.Builder(Rectangle.Type.JOUEUR, panneau).
                 setX(235).
                 setY(150).
                 setVitesseX(5).
                 setVitesseY(5).
                 start();
 
-        Ennemi.generateEnemies(panneau, 1000);
+        Ennemi.generateEnemies(panneau, 15);
 
-        Rectangle base = new Rectangle.Builder(Rectangle.Type.BASE, panneau).
+        new Rectangle.Builder(Rectangle.Type.BASE, panneau).
                 setX(210).
                 setY(210).
                 setHauteur(80).
@@ -35,34 +35,37 @@ public class Main {
                 setVitesseY(0).
                 start();
 
-        new Audio("/data/sounds/ninja.wav").play();
+        new Audio("/resources/sounds/ninja.wav").play();
 
         new Thread(() -> {
-            while (true) {
+            boolean running = true;
+            while (running) {
                 try {
                     Thread.sleep(30);
                     panneau.refreshFrame();
                     if (Main.IS_UNIX_OS)
                         Toolkit.getDefaultToolkit().sync();
 
-                    boolean finish = true;
+                    boolean done = true;
 
                     int i = 0;
-                    while (finish && i < panneau.rectangleList.size()) {
+                    while (done && i < panneau.rectangleList.size()) {
                         if (panneau.rectangleList.get(i).type == Rectangle.Type.ENNEMI) {
-                            finish = panneau.rectangleList.get(i).couleur == Color.BLACK;
+                            done = panneau.rectangleList.get(i).couleur == Color.BLACK;
                         }
                         i++;
                     }
 
-                    if (finish) {
+                    if (done) {
                         JOptionPane.showMessageDialog(panneau.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemi.points + " !");
-                        System.exit(0);
+                        running = false;
                     }
                 } catch (InterruptedException e) {
                     System.out.println(e.getMessage());
                 }
             }
+
+            System.exit(0);
         }).start();
     }
 }

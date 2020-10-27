@@ -17,7 +17,7 @@ public class Activity implements Runnable {
     }
 
     /**
-     * Start.
+     * Start the activity.
      */
     public void start() {
         new Thread(this).start();
