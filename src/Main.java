@@ -37,35 +37,33 @@ public class Main {
 
         new Audio("/resources/sounds/ninja.wav").play();
 
-        new Thread(() -> {
-            boolean running = true;
-            while (running) {
-                try {
-                    Thread.sleep(30);
-                    board.refreshFrame();
-                    if (Main.IS_UNIX_OS)
-                        Toolkit.getDefaultToolkit().sync();
+        boolean running = true;
+        while (running) {
+            try {
+                Thread.sleep(30);
+                board.refreshFrame();
+                if (Main.IS_UNIX_OS)
+                    Toolkit.getDefaultToolkit().sync();
 
-                    boolean done = true;
+                boolean done = true;
 
-                    int i = 0;
-                    while (done && i < board.rectangleList.size()) {
-                        if (board.rectangleList.get(i).type == Rectangle.Type.ENNEMI) {
-                            done = board.rectangleList.get(i).couleur == Color.BLACK;
-                        }
-                        i++;
+                int i = 0;
+                while (done && i < board.rectangleList.size()) {
+                    if (board.rectangleList.get(i).type == Rectangle.Type.ENNEMI) {
+                        done = board.rectangleList.get(i).couleur == Color.BLACK;
                     }
-
-                    if (done) {
-                        JOptionPane.showMessageDialog(board.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemy.points + " !");
-                        running = false;
-                    }
-                } catch (InterruptedException e) {
-                    System.out.println(e.getMessage());
+                    i++;
                 }
-            }
 
-            System.exit(0);
-        }).start();
+                if (done) {
+                    JOptionPane.showMessageDialog(board.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemy.points + " !");
+                    running = false;
+                }
+            } catch (InterruptedException e) {
+                System.out.println(e.getMessage());
+            }
+        }
+
+        System.exit(0);
     }
 }
