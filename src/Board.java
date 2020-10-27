@@ -93,19 +93,19 @@ public class Board {
     }
 
     /**
-     * Save one.
+     * This method allows to notify a rectangle so that it continues its activity
      */
     public synchronized void saveOne() {
         this.notify();
     }
 
     /**
-     * Overlaps boolean.
+     * This method allows to verify if a rectangle overlap with another rectangle
      *
      * @param waitFlag         the wait flag
      * @param r                the r
      * @param typesDeCollision the types de collision
-     * @return the boolean
+     * @return true if the rectangle overlap with any other rectangle or false
      */
     public synchronized boolean overlaps(boolean waitFlag, Rectangle r, Rectangle.Type... typesDeCollision) {
         boolean overlap = false;
