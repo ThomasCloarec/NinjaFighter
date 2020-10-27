@@ -277,7 +277,7 @@ public abstract class Rectangle {
          */
         JOUEUR("resources/images/tatitatoo.png"),
         /**
-         * Ennemy type.
+         * Enemy type.
          */
         ENNEMI(),
         /**
@@ -322,7 +322,7 @@ public abstract class Rectangle {
                 this.rectangle = new Base(board, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
                 this.rectangle.type = Type.BASE;
             } else {
-                this.rectangle = new Ennemy(board, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
+                this.rectangle = new Enemy(board, Rectangle.DEFAULT_WIDTH, Rectangle.DEFAULT_HEIGHT, 0, 0, Rectangle.DEFAULT_SPEED_X, Rectangle.DEFAULT_SPEED_Y);
                 this.rectangle.type = Type.ENNEMI;
             }
         }

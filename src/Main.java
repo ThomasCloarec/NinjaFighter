@@ -21,7 +21,7 @@ public class Main {
                 setVitesseY(5).
                 start();
 
-        Ennemy.generateEnemies(board, 15);
+        Enemy.generateEnemies(board, 15);
 
         new Rectangle.Builder(Rectangle.Type.BASE, board).
                 setX(210).
@@ -53,7 +53,7 @@ public class Main {
                 }
 
                 if (done) {
-                    JOptionPane.showMessageDialog(board.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Ennemy.points + " !");
+                    JOptionPane.showMessageDialog(board.getFrame(), "Félicitations, mais vos ennemis ont atteint " + Enemy.points + " !");
                     running = false;
                 }
             } catch (InterruptedException e) {

@@ -41,7 +41,6 @@ public class Audio {
      * Start to play audio.
      */
     public void play() {
-
         if (this.clip != null && !this.clip.isRunning()) {
             this.clip.setFramePosition(0);
             this.clip.start();

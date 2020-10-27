@@ -55,7 +55,7 @@ public class Board {
                             }
                         }
 
-                        Board.this.scores.setText(Integer.toString(Ennemy.points));
+                        Board.this.scores.setText(Integer.toString(Enemy.points));
                         int labelWidth = g.getFontMetrics().stringWidth(Board.this.scores.getText());
                         Board.this.scores.setLocation(250 - labelWidth / 2, 20);
                     }
@@ -101,6 +101,7 @@ public class Board {
 
     /**
      * This method allows to verify if a rectangle overlap with another rectangle
+     * If its the case, the rectangle suspends its activity with a wait
      *
      * @param waitFlag         the wait flag
      * @param r                the r
