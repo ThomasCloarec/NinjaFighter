@@ -1,4 +1,5 @@
 # NinjaFighter
+## Concept
 The goal of this game is to protect its base, the house in the center,
 against the invasion of enemies, represented by red rectangles. The user can move his
 character using the arrow keys or ZQSD. To win, he will have to succeed in touching all
@@ -9,5 +10,10 @@ player is to minimize the score indicated on his house, this one increases indee
 pass over it. So you can see it as the enemies score, that you must try to maintain the
 as low as possible.
 
+
+## Screenshot
+![alt text](https://raw.githubusercontent.com/ThomasCloarec/NinjaFighter/main/game_screenshot.png?token=AGPUYUBGOOXHUYWCFOE7TXC7UHO3A)
+
+## Class diagram :
 ![alt text](https://raw.githubusercontent.com/ThomasCloarec/NinjaFighter/main/class_diagram.png?token=AGPUYUBEINKZT6CI2K6LMZC7UHOSC)
 
