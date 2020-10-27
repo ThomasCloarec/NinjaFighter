@@ -14,8 +14,8 @@ as low as possible.
 ## Screenshot
 ![alt text](https://raw.githubusercontent.com/ThomasCloarec/NinjaFighter/main/game_screenshot.png?token=AGPUYUBGOOXHUYWCFOE7TXC7UHO3A)
 
-## Class diagram :
+## Class diagram
 ![alt text](https://raw.githubusercontent.com/ThomasCloarec/NinjaFighter/main/class_diagram.png?token=AGPUYUBEINKZT6CI2K6LMZC7UHOSC)
 
-## Documentation :
+## Documentation
 [Check it here](https://thomascloarec.github.io/NinjaFighterDocs/)
