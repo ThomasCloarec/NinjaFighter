@@ -8,3 +8,6 @@ to resuscitate one of the frozen enemies. The reanimating rectangle then turns y
 player is to minimize the score indicated on his house, this one increases indeed when enemies
 pass over it. So you can see it as the enemies score, that you must try to maintain the
 as low as possible.
+
+![alt text](https://raw.githubusercontent.com/ThomasCloarec/NinjaFighter/main/class_diagram.png?token=AGPUYUBEINKZT6CI2K6LMZC7UHOSC)
+
