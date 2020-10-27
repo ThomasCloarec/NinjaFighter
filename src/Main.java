@@ -2,9 +2,6 @@ import javax.swing.JOptionPane;
 import java.awt.Color;
 import java.awt.Toolkit;
 
-/**
- * The type Main.
- */
 public class Main {
     private static final String OS = System.getProperty("os.name").toLowerCase();
     private static final boolean IS_UNIX_OS = Main.OS.contains("nix") || Main.OS.contains("nux") || Main.OS.contains("aix");
