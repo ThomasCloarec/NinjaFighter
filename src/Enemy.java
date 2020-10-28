@@ -17,7 +17,7 @@ public class Enemy extends Rectangle {
     /**
      * Instantiates a new Enemy.
      *
-     * @param board  the panel where the ennemy will be display
+     * @param board  the board where the ennemy will be display
      * @param width  the width of the ennemy
      * @param height the height of the ennemy
      * @param x      the x position of the ennemy
@@ -32,7 +32,7 @@ public class Enemy extends Rectangle {
     /**
      * Generate enemies.
      *
-     * @param board the panel where the ennemy will be display
+     * @param board the board where the ennemy will be display
      * @param count   the number of ennemies to generate
      */
     public static void generateEnemies(Board board, int count) {

@@ -26,8 +26,8 @@ public class Board {
     /**
      * Instantiates a new Board.
      *
-     * @param width the width of the panel
-     * @param height the height of the panel
+     * @param width the width of the board
+     * @param height the height of the board
      */
     public Board(int width, int height) {
         this.scores.setForeground(Color.WHITE);
@@ -104,7 +104,7 @@ public class Board {
      * If its the case, the rectangle suspends its activity with a wait
      *
      * @param waitFlag         the wait flag
-     * @param r                the r
+     * @param r                the rectangle
      * @param typesDeCollision the types de collision
      * @return true if the rectangle overlap with any other rectangle or false
      */
@@ -140,9 +140,9 @@ public class Board {
     }
 
     /**
-     * Gets main panel.
+     * Gets main board.
      *
-     * @return the main panel
+     * @return the main board
      */
     public JPanel getMainPanel() {
         return this.mainPanel;

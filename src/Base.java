@@ -7,7 +7,7 @@ public class Base extends Rectangle {
     /**
      * Instantiates a new Base.
      *
-     * @param board  the panel where the base will be display
+     * @param board  the board where the base will be display
      * @param width  the width of the base
      * @param height  the height of the base
      * @param x        the x position of the base

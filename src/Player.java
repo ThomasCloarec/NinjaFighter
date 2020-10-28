@@ -18,7 +18,7 @@ public class Player extends Rectangle {
     /**
      * Instantiates a new Player.
      *
-     * @param board  the panel where the player will be display
+     * @param board  the board where the player will be display
      * @param width  the width of the player
      * @param height  the height of the player
      * @param x        the x position of the player

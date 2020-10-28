@@ -43,7 +43,7 @@ public abstract class Rectangle {
     /**
      * Instantiates a new Rectangle.
      *
-     * @param board  the panel where the recatngle will be display
+     * @param board  the board where the recatngle will be display
      * @param color  the color of this rectangle
      * @param width  the width of this rectangle
      * @param height  the height of this rectangle
