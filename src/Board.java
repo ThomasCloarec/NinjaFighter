@@ -48,10 +48,10 @@ public class Board {
                             rectangle = Board.this.rectangleList.get(i);
 
                             if (rectangle.getType().image == null) {
-                                g.setColor(rectangle.getCouleur());
-                                g.fillRect(rectangle.getX(), rectangle.getY(), rectangle.getLargeur(), rectangle.getHauteur());
+                                g.setColor(rectangle.getColor());
+                                g.fillRect(rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight());
                             } else {
-                                g.drawImage(rectangle.getType().image, rectangle.getX(), rectangle.getY(), rectangle.getLargeur(), rectangle.getHauteur(), this);
+                                g.drawImage(rectangle.getType().image, rectangle.getX(), rectangle.getY(), rectangle.getWidth(), rectangle.getHeight(), this);
                             }
                         }
 
@@ -115,7 +115,7 @@ public class Board {
         for (int i = 0; i < this.rectangleList.size(); i++) {
             rectangle = this.rectangleList.get(i);
             if (rectangle != null && r != rectangle && !overlap && Arrays.asList(typesDeCollision).contains(rectangle.type)) {
-                overlap = r.getX() < rectangle.getX() + rectangle.getLargeur() && r.getX() + r.getLargeur() > rectangle.getX() && r.getY() < rectangle.getY() + rectangle.getHauteur() && r.getY() + r.getHauteur() > rectangle.getY();
+                overlap = r.getX() < rectangle.getX() + rectangle.getWidth() && r.getX() + r.getWidth() > rectangle.getX() && r.getY() < rectangle.getY() + rectangle.getHeight() && r.getY() + r.getHeight() > rectangle.getY();
             }
         }
 

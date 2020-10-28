@@ -42,8 +42,8 @@ public class Enemy extends Rectangle {
             new Rectangle.Builder(Type.ENNEMI, board)
                     .setX((int) (Math.random() * mainPanel.getWidth()))
                     .setY((int) (Math.random() * mainPanel.getHeight()))
-                    .setVitesseX((int) (Math.random() * Enemy.DEFAULT_MAX_SPEED + 1))
-                    .setVitesseY((int) (Math.random() * Enemy.DEFAULT_MAX_SPEED + 1))
+                    .setXSpeed((int) (Math.random() * Enemy.DEFAULT_MAX_SPEED + 1))
+                    .setYSpeed((int) (Math.random() * Enemy.DEFAULT_MAX_SPEED + 1))
                     .start();
         }
     }
@@ -57,21 +57,21 @@ public class Enemy extends Rectangle {
 
     @Override
     public void checkAndUpdateSpeed(Board board) {
-        this.couleur = Color.RED;
+        this.color = Color.RED;
         if (Math.random() < Enemy.RANDOM_HELP) {
             try {
-                this.couleur = Color.ORANGE;
+                this.color = Color.ORANGE;
                 Thread.sleep(Enemy.SAVING_DURATION);
                 board.saveOne();
                 Thread.sleep(Enemy.RESTART_DURATION);
-                this.couleur = Color.RED;
+                this.color = Color.RED;
             } catch (InterruptedException e) {
                 e.printStackTrace();
             }
         }
 
         if (board.overlaps(false, this, Type.JOUEUR)) {
-            this.couleur = Color.BLACK;
+            this.color = Color.BLACK;
         }
         board.overlaps(true, this, Type.JOUEUR);
         this.updateSpeed(board);

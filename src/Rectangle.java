@@ -16,7 +16,7 @@ public abstract class Rectangle {
     /**
      * The Color of this rectangle.
      */
-    protected Color couleur;
+    protected Color color;
     /**
      * The Type.
      */
@@ -44,7 +44,7 @@ public abstract class Rectangle {
      * Instantiates a new Rectangle.
      *
      * @param board  the panel where the recatngle will be display
-     * @param couleur  the color of this rectangle
+     * @param color  the color of this rectangle
      * @param width  the width of this rectangle
      * @param height  the height of this rectangle
      * @param x        the x position of this rectangle
@@ -52,9 +52,9 @@ public abstract class Rectangle {
      * @param XSpeed the x speed of this rectangle
      * @param YSpeed the y speed of this rectangle
      */
-    public Rectangle(Board board, Color couleur, int width, int height, int x, int y, int XSpeed, int YSpeed) {
+    public Rectangle(Board board, Color color, int width, int height, int x, int y, int XSpeed, int YSpeed) {
         this.board = board;
-        this.couleur = couleur;
+        this.color = color;
         this.width = width;
         this.height = height;
         this.XSpeed = XSpeed;
@@ -128,12 +128,12 @@ public abstract class Rectangle {
     }
 
     /**
-     * Gets couleur.
+     * Gets color.
      *
-     * @return the couleur
+     * @return the color
      */
-    public Color getCouleur() {
-        return this.couleur;
+    public Color getColor() {
+        return this.color;
     }
 
     /**
@@ -141,7 +141,7 @@ public abstract class Rectangle {
      *
      * @return the height
      */
-    public int getHauteur() {
+    public int getHeight() {
         return this.height;
     }
 
@@ -150,7 +150,7 @@ public abstract class Rectangle {
      *
      * @param height the height
      */
-    public void setHauteur(int height) {
+    public void setHeight(int height) {
         this.height = height;
     }
 
@@ -159,7 +159,7 @@ public abstract class Rectangle {
      *
      * @return the width
      */
-    public int getLargeur() {
+    public int getWidth() {
         return this.width;
     }
 
@@ -168,7 +168,7 @@ public abstract class Rectangle {
      *
      * @param width the width
      */
-    public void setLargeur(int width) {
+    public void setWidth(int width) {
         this.width = width;
     }
 
@@ -182,38 +182,38 @@ public abstract class Rectangle {
     }
 
     /**
-     * Gets vitesse x.
+     * Gets x speed.
      *
-     * @return the vitesse x
+     * @return the x speed
      */
-    public int getVitesseX() {
+    public int getXSpeed() {
         return this.XSpeed;
     }
 
     /**
-     * Sets vitesse x.
+     * Sets x speed.
      *
-     * @param XSpeed the vitesse x
+     * @param XSpeed the x speed
      */
-    public void setVitesseX(int XSpeed) {
+    public void setXSpeed(int XSpeed) {
         this.XSpeed = XSpeed;
     }
 
     /**
-     * Gets vitesse y.
+     * Gets y speed.
      *
-     * @return the vitesse y
+     * @return the y speed
      */
-    public int getVitesseY() {
+    public int getYSpeed() {
         return this.YSpeed;
     }
 
     /**
-     * Sets vitesse y.
+     * Sets y speed.
      *
-     * @param YSpeed the vitesse y
+     * @param YSpeed the y speed
      */
-    public void setVitesseY(int YSpeed) {
+    public void setYSpeed(int YSpeed) {
         this.YSpeed = YSpeed;
     }
 
@@ -354,8 +354,8 @@ public abstract class Rectangle {
          * @param height the height
          * @return the height
          */
-        public Builder setHauteur(int height) {
-            this.rectangle.setHauteur(height);
+        public Builder setHeight(int height) {
+            this.rectangle.setHeight(height);
             return this;
         }
 
@@ -365,30 +365,30 @@ public abstract class Rectangle {
          * @param width the width
          * @return the width
          */
-        public Builder setLargeur(int width) {
-            this.rectangle.setLargeur(width);
+        public Builder setWidth(int width) {
+            this.rectangle.setWidth(width);
             return this;
         }
 
         /**
-         * Sets vitesse x.
+         * Sets x speed.
          *
-         * @param XSpeed the vitesse x
-         * @return the vitesse x
+         * @param XSpeed the x speed
+         * @return the x speed
          */
-        public Builder setVitesseX(int XSpeed) {
-            this.rectangle.setVitesseX(XSpeed);
+        public Builder setXSpeed(int XSpeed) {
+            this.rectangle.setXSpeed(XSpeed);
             return this;
         }
 
         /**
-         * Sets vitesse y.
+         * Sets y speed.
          *
-         * @param YSpeed the vitesse y
-         * @return the vitesse y
+         * @param YSpeed the y speed
+         * @return the y speed
          */
-        public Builder setVitesseY(int YSpeed) {
-            this.rectangle.setVitesseY(YSpeed);
+        public Builder setYSpeed(int YSpeed) {
+            this.rectangle.setYSpeed(YSpeed);
             return this;
         }
 

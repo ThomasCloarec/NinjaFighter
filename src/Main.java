@@ -17,8 +17,8 @@ public class Main {
         new Rectangle.Builder(Rectangle.Type.JOUEUR, board).
                 setX(235).
                 setY(150).
-                setVitesseX(5).
-                setVitesseY(5).
+                setXSpeed(5).
+                setYSpeed(5).
                 start();
 
         Enemy.generateEnemies(board, 15);
@@ -26,10 +26,10 @@ public class Main {
         new Rectangle.Builder(Rectangle.Type.BASE, board).
                 setX(210).
                 setY(210).
-                setHauteur(80).
-                setLargeur(80).
-                setVitesseX(0).
-                setVitesseY(0).
+                setHeight(80).
+                setWidth(80).
+                setXSpeed(0).
+                setYSpeed(0).
                 start();
 
         new Audio("/resources/sounds/ninja.wav").play();
@@ -47,7 +47,7 @@ public class Main {
                 int i = 0;
                 while (done && i < board.rectangleList.size()) {
                     if (board.rectangleList.get(i).type == Rectangle.Type.ENNEMI) {
-                        done = board.rectangleList.get(i).couleur == Color.BLACK;
+                        done = board.rectangleList.get(i).color == Color.BLACK;
                     }
                     i++;
                 }
