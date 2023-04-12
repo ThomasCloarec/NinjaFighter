@@ -1,3 +1,4 @@
+import java.util.concurrent.TimeUnit;
 import javax.sound.sampled.AudioInputStream;
 import javax.sound.sampled.AudioSystem;
 import javax.sound.sampled.Clip;
@@ -43,6 +44,12 @@ public class Audio {
     public void play() {
         if (this.clip != null && !this.clip.isRunning()) {
             this.clip.setFramePosition(0);
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             this.clip.start();
         }
     }
