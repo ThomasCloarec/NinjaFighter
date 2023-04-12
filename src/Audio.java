@@ -44,6 +44,12 @@ public class Audio {
     public void play() {
         if (this.clip != null && !this.clip.isRunning()) {
             this.clip.setFramePosition(0);
+            try {
+                TimeUnit.SECONDS.sleep(3);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
             this.clip.start();
         }
     }
